@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My $1,000,000 Grid</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .grid-box {
+      width: 12px;
+      height: 12px;
+      background-color: #e5e7eb; /* 默认灰色 */
+      border-radius: 3px;
+      margin: 2px;
+      transition: transform 0.2s;
+    }
+    .grid-box:hover {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+    .grid-box.filled-1 { background-color: #facc15; }
+    .grid-box.filled-2 { background-color: #38bdf8; }
+    .grid-box.filled-3 { background-color: #34d399; }
+  </style>
+</head>
+<body class="bg-yellow-50 text-gray-800 font-sans">
+
+  <header class="bg-yellow-300 text-center text-sm py-2 font-semibold">
+    🚀 Check out my $1,000,000 journey!
+  </header>
+
+  <nav class="bg-white shadow sticky top-0 z-10">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <img src="assets/avatar.png" alt="Avatar" class="w-10 h-10 rounded-full mr-3">
+        <span class="font-bold text-lg">Peppa Liam</span>
+      </div>
+      <div class="text-sm text-gray-600">
+        <a href="#progress" class="hover:underline mr-4">Progress</a>
+        <a href="#about" class="hover:underline">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-5xl mx-auto mt-6 px-4">
+    
+    <!-- 进度展示 -->
+    <section id="progress" class="bg-white p-6 rounded-xl shadow mb-6 text-center">
+      <h1 class="text-2xl md:text-3xl font-bold mb-2">我的 $1,000,000 网格</h1>
+      <p class="text-sm text-gray-600 mb-4">
+        对于 <strong>100 万美元挑战</strong>。每个方块代表 <strong>$1,000</strong>。<br />
+        <span class="text-xs">
+          （灵感来自 <a href="https://www.alwa.info/one-million/index.html" target="_blank" class="text-orange-500 underline">Florin Pop 和Shen Huang</a> 的代码）
+        </span><br />
+        <span class="text-xs text-gray-500">
+          💡 将鼠标悬停在方格上可查看详细信息 • 单击实心方格可访问链接或查看细分
+        </span>
+      </p>
+      <div class="flex flex-wrap justify-center w-[720px] max-w-full mx-auto" id="grid"></div>
+    </section>
+
+    <!-- 统计卡片 -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+      <div class="bg-white p-4 rounded-xl shadow text-center">
+        <h2 class="text-sm font-semibold text-gray-600 mb-1">Revenue (so far)</h2>
+        <div class="text-2xl text-orange-600 font-bold" id="current-revenue">$0</div>
+        <div class="text-xs text-gray-500 mt-1" id="progress-percentage">0% complete</div>
+      </div>
+      <div class="bg-white p-4 rounded-xl shadow text-center">
+        <h2 class="text-sm font-semibold text-gray-600 mb-1">Time Remaining</h2>
+        <div id="time-remaining" class="text-2xl text-green-600 font-bold">Loading...</div>
+        <div class="text-xs text-gray-500 mt-1">Until 2030 goal</div>
+      </div>
+      <div class="bg-white p-4 rounded-xl shadow text-center">
+        <h2 class="text-sm font-semibold text-gray-600 mb-1">Last Updated</h2>
+        <div class="text-2xl text-blue-600 font-bold">Jul 14, 2025</div>
+        <div class="text-xs text-blue-500 mt-1 underline cursor-pointer">View timeline</div>
+      </div>
+    </section>
+
+    <!-- 关于 -->
+    <section id="about" class="bg-white p-6 rounded-xl shadow mb-10">
+      <h2 class="text-2xl font-bold mb-4">百万美元挑战启动</h2>
+      <p class="mb-4">这个页面将记录我从 <strong>2025年7月14日</strong> 开始的五年副业挑战，目标是 <strong>赚到100万美元</strong>。</p>
+      <p class="mb-4">每赚到 <strong>$1,000</strong>，就会点亮一个格子，1000 个格子全亮，挑战达成。</p>
+      <p class="mb-4">我会在这里实时更新进度，欢迎关注，一起见证！</p>
+      <p>📍 实时进度记录地址：<a href="https://1m.bearliu.com" target="_blank" class="text-blue-600 underline">https://1m.bearliu.com</a></p>
+    </section>
+
+   <!-- 收入明细 -->
+<section class="bg-white p-6 rounded-xl shadow mb-6">
+  <h2 class="text-xl font-bold mb-4">💰 收入明细</h2>
+
+  <!-- 收入分类汇总 -->
+  <div class="overflow-x-auto mb-6">
+    <table class="w-full text-left text-sm">
+      <thead class="text-gray-500">
+        <tr><th class="pb-2">类别</th><th class="pb-2">金额</th></tr>
+      </thead>
+      <tbody class="text-gray-800 font-medium">
+        <tr><td><span class="inline-block w-3 h-3 rounded-full bg-yellow-400 mr-2"></span>知识付费</td><td>$0</td></tr>
+        <tr><td><span class="inline-block w-3 h-3 rounded-full bg-green-400 mr-2"></span>顾问</td><td>$0</td></tr>
+        <tr><td><span class="inline-block w-3 h-3 rounded-full bg-pink-400 mr-2"></span>内容广告</td><td>$0</td></tr>
+        <tr><td><span class="inline-block w-3 h-3 rounded-full bg-gray-400 mr-2"></span>联盟</td><td>$0</td></tr>
+        <tr class="border-t border-gray-200"><td class="pt-2 font-bold">总</td><td class="pt-2 font-bold">$0</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 收入流水明细 -->
+  <h3 class="text-lg font-semibold mb-2">📋 收入流水明细</h3>
+  <div class="overflow-x-auto">
+    <table class="w-full text-left text-sm border">
+      <thead class="bg-gray-100 text-gray-600">
+        <tr>
+          <th class="py-2 px-2 border">日期</th>
+          <th class="py-2 px-2 border">类别</th>
+          <th class="py-2 px-2 border">金额</th>
+          <th class="py-2 px-2 border">备注</th>
+        </tr>
+      </thead>
+      <tbody class="text-gray-800">
+        <tr>
+          <td class="py-1 px-2 border">2025-07-14</td>
+          <td class="py-1 px-2 border">知识付费</td>
+          <td class="py-1 px-2 border">$0</td>
+          <td class="py-1 px-2 border">启动测试</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</section>
+
+    <!-- FAQ -->
+    <section class="bg-white p-6 rounded-xl shadow mb-10">
+      <h2 class="text-xl font-bold mb-4">📖 常见问题解答</h2>
+      <details class="mb-3">
+        <summary class="cursor-pointer text-orange-500 font-medium">什么是 100 万美元挑战赛？</summary>
+        <p class="mt-2 text-gray-700">这是一个自我驱动的长期副业挑战，目标是在几年内累计收入达到 1,000,000 美元。</p>
+      </details>
+      <details class="mb-3">
+        <summary class="cursor-pointer text-orange-500 font-medium">您如何跟踪您的进度？</summary>
+        <p class="mt-2 text-gray-700">我会记录每一笔副业收入，累计 $1,000 点亮一个格子，公开透明。</p>
+      </details>
+      <details class="mb-3">
+        <summary class="cursor-pointer text-orange-500 font-medium">哪些项目有助于实现这一目标？</summary>
+        <p class="mt-2 text-gray-700">包括自由职业、内容创作、数字产品、顾问服务、广告和联盟合作。</p>
+      </details>
+      <details class="mb-3">
+        <summary class="cursor-pointer text-orange-500 font-medium">预计需要多长时间？</summary>
+        <p class="mt-2 text-gray-700">目标是五年内完成，平均每年 $200,000。</p>
+      </details>
+      <details>
+        <summary class="cursor-pointer text-orange-500 font-medium">如何赞助？</summary>
+        <div class="mt-2 text-gray-700 space-y-2">
+          <p>欢迎以 $1,000 单位支持，获取专属展示链接，私信我！</p>
+          <p class="font-semibold">📧 联系方式：</p>
+          <ul class="list-disc list-inside">
+            <li>2035972480@qq.com</li>
+            <li>pengjiahui7692@gmail.com</li>
+            <li>pengjiahui2004@outlook.com</li>
+          </ul>
+          <p class="font-semibold">💰 虚拟货币钱包地址：</p>
+          <p class="break-all">0xA39e18472AA0C6528701375Ce7567c772f4786B2</p>
+        </div>
+      </details>
+    </section>
+
+  </main>
+
+  <footer class="text-center text-xs text-gray-500 py-6">
+    &copy; 2025 Bear Liu. All rights reserved.
+  </footer>
+
+  <script>
+    // 网格填充逻辑 - 取消默认高亮
+    const grid = document.getElementById("grid");
+    for (let i = 1; i <= 1000; i++) {
+      const box = document.createElement("div");
+      box.className = "grid-box";
+      // 这里不添加 filled-1/2/3 类，默认灰色
+      grid.appendChild(box);
+    }
+
+    // 倒计时逻辑
+    function updateCountdown() {
+      const goalDate = new Date('2030-07-14T00:00:00');
+      const now = new Date();
+      const diff = goalDate - now;
+      if (diff <= 0) {
+        document.getElementById('time-remaining').textContent = 'Challenge Ended';
+        return;
+      }
+      const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+      const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
+      document.getElementById('time-remaining').textContent = `${years} years, ${days} days`;
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 86400000); // 每天更新一次
+  </script>
+
+</body>
+</html>
